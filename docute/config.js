@@ -3,10 +3,10 @@ var langs = [
 ]
 
 self.$config = {
-  title: 'Document',
+  title: 'UE4 Code Rules',
   repo: 'hxhb/ue4doc-code-rules',
   zhihu: 'visionsmile',
-  'edit-link': 'https://github.com/hxhb/ue4doc-code-rules/blob/master',
+  'edit-link': 'https://github.com/hxhb/ue4doc-code-rules/blob/gh-pages',
   nav: {
     default: [
       {
