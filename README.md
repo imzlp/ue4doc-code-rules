@@ -31,7 +31,7 @@
 
 10. UE中默认中禁止`dynamic_cast`，在UEC++的范畴内不要使用标准C++的转换，可以使用`Cast<>`；
 
-11. 继承自UObject的对象统一使用`GENERATED_UCLASS_BODY`，并需要创建出`XXXXX:xXXXX(const FObjectInitializer& InObjectInitializer)`的构造函数；
+11. 继承自UObject的对象统一使用`GENERATED_UCLASS_BODY`，并需要创建出`XXXXX:XXXXX(const FObjectInitializer& InObjectInitializer)`的构造函数；
 
 12. 函数内如果有可能具有某种竞争逻辑，则需要使用`FScopeLock ScopeLock(&CriticalSection);`为当前作用域加锁，防止资源竞争；
 
