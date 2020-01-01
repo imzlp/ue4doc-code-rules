@@ -21,7 +21,7 @@
 
 4. C++写的类的数据成员的初始化顺序必须要与声明顺序一致。
 
-5. 在有可能会执行失败的函数中必须要提供返回值，在Get函数中同样需要（错误码或者bool都可以）
+5. 在有可能会执行失败的函数中必须要提供返回值，在Get函数中同样需要（错误码或者bool都可以），并且不可以直接在执行结尾`return true;`最终执行的结果要根据前面可能会执行失败的逻辑是否成功；
 
 6. 禁止所有的static成员的在全局作用域初始化操作（尤其是获取引擎数据的初始化），只允许字面值类型的static初始化，如`static FString Name = TEXT("helloworld")`等；
 
@@ -47,7 +47,7 @@
 
 17. 用C++创建的供外部使用的结构成员必须使用`UPROPERTY`并且需要提供`BlueprintReadWrite`属性；
 
-18. 所有暴露给其他模块使用的类必须有导出符号`xxxxx_API`
+18. 所有暴露给其他模块使用的类必须有导出符号`MODULE_NAME_API`
 
 19. 所有的插件和单独的模块在`build.cs`中必须写`OptimizeCode=CodeOptimization.InShippingBuildsOnly`，方便调试。
 
