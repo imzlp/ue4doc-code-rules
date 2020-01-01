@@ -25,8 +25,6 @@
 
 6. 禁止所有的static成员的在全局作用域初始化操作（尤其是获取引擎数据的初始化），只允许字面值类型的static初始化，如`static FString Name = TEXT("helloworld")`等；
 
-7. 函数的参数命名：传入的参数必须以In开头，返回的参数必须以Out开头；
-
 8. 对于在局部作用域创建的**资源**（裸内存或者文件访问）要使用`ON_SCOPE_EXIT`来确保释放逻辑；
 
 9. Lambda引用捕获的对象不可做为异步逻辑操作的对象，如在一个函数内创建了lambda对象引用捕获了局部变量，将其传递给异步逻辑，这种操作是禁止的。
@@ -59,4 +57,15 @@
 
 23. 代码文件的编码格式统一为UTF-8
 
-    
+### 命名规则
+UE的架构内的命名同样依赖UE的代码标准[Coding Standard](https://docs.unrealengine.com/en-US/Programming/Development/CodingStandard/index.html)
+
+1. 变量名要能够标识出类型，比如b开头是bool,i默认是int32，特殊位长的需要特殊命名，无符号类型要加u；
+2. 函数库统一使用Flib开头；
+3. Delegate命名时要能够标识出其类型，可以使用缩写，Dy代表动态代理，Multi代表多播代理，Dlg代表是代理；
+4. 游戏框架内的Subsystem类必须要以`Subsys`开头，并且能够知道这个类是做什么的，比如`SubsysGameUpdater`和其子类`SubsysHTTPGameUpdater`；
+5. 函数的命名要能够根据名字知道它要做什么事情、所有获取的方法统一使用Get，进行检测的可以使用TryGet命名；
+6. 函数传入的参数必须以In开头，返回的参数必须以Out开头（引用）；
+7. 函数有可能会执行失败的要返回bool或者错误码（返回值必须要有意义，不能逻辑中什么都不判断直接在函数末尾写`return true`）
+8. 蓝图的类统一使用`BP_`开头
+9. UI的类统一使用`UMG_`开头；
